@@ -1,0 +1,11 @@
+{% load thumbnail %}
+
+{% for post in all_posts %}
+<h1>{{ post.title }}</h1>
+
+{% thumbnail post.image "600x600" as im %}
+    <a href="{{ post.image.url }}"><img src="{{ im.url }}"/></a>
+{% empty %}
+    <p>No image</p>
+{% endthumbnail %}
+{% endfor %}
